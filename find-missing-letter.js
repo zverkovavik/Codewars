@@ -30,3 +30,13 @@ function findMissingLetter(array) {
     }
   }
 }
+
+//  shorter way
+function findMissingLetter(array) {
+  let firstIndex = array[0].charCodeAt();
+  for (let i = 1; i < array.length; i++) {
+    if (firstIndex + i !== array[i].charCodeAt()) {
+      return String.fromCharCode(firstIndex + i);
+    }
+  }
+}
