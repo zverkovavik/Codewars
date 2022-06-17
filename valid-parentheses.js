@@ -29,13 +29,13 @@ function validParentheses(parens){
  
 // 
 
-function validParentheses(parens){
-  let count = 0;
-  for (let i = 0; i < parens.length; i++) {
-    if (parens[i] == '(') count++;
-    if (parens[i] == ')') count--;
-    if (count < 0) return false;
+function validParentheses(parens) {
+  let openBracket = '(';
+  let result = 0;
+  const parenthesesArray = parens.split('');
+  for (let bracket of parenthesesArray) {
+    bracket === openBracket ? result+=1 : result-=1;
+    if (result < 0) break;
   }
-  
-  return count === 0;
+  return !result;
 }
